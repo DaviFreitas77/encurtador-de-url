@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\LinksController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,4 +15,13 @@ Route::prefix('auth')->group(function () {
     Route::post('/register', [RegisterController::class, 'create']);
     Route::post('/login', [LoginController::class, 'login']);
     // Route::post('/logout', [LoginController::class, 'login']);
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/links', [LinksController::class, 'fetchLinkUser']);
+    Route::post('/links', [LinksController::class, 'createLink']);
+});
+
+Route::prefix('s')->group(function () {
+    Route::get('/{slug}', [LinksController::class, 'redirectOriginalUrl']);
 });
