@@ -40,7 +40,7 @@ class LinksController extends Controller
         $link->click_count = 0; //default = 0
         $link->save();
 
-     
+
         return response()->json([
             'message' => 'Link criado com sucesso!',
             'slug' => $slug,
@@ -57,7 +57,7 @@ class LinksController extends Controller
         $idUser = $request->user()->id;
         $links = Links::where('user_id', $idUser)->get();
 
-        return response()->json($links);
+        return response()->json($links, 200);
     }
 
     public function redirectOriginalUrl($slug)
