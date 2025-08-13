@@ -3,6 +3,7 @@
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\LinksController;
+use App\Http\Controllers\QRCodeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,6 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::prefix('s')->group(function () {
     Route::get('/{slug}', [LinksController::class, 'redirectOriginalUrl']);
 });
+
+
+Route::get('/qrCode/{slug}',[QRCodeController::class,'gerarQrCode']);

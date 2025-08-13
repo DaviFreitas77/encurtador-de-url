@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Links;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use LaravelQRCode\Facades\QRCode;
 
 class LinksController extends Controller
 {
@@ -37,12 +38,13 @@ class LinksController extends Controller
         $link->status = 'active'; //default = active
         $link->expires_at = $request->expires_at;
         $link->click_count = 0; //default = 0
-
         $link->save();
 
+     
         return response()->json([
             'message' => 'Link criado com sucesso!',
-            'slug' => $slug
+            'slug' => $slug,
+
         ], 201);
     }
 
@@ -76,7 +78,7 @@ class LinksController extends Controller
             return response()->json(['message' => 'link inativo'], 404);
         }
 
-        if ($captureUrl->expires_at < $currentDateTime) {
+        if ($captureUrl->expires_at && $captureUrl->expires_at < $currentDateTime) {
             $captureUrl->status = 'expired';
             $captureUrl->save();
             return response()->json(['message' => 'link expirado']);
