@@ -35,10 +35,14 @@ class fluxoUserTest extends TestCase
             'expires_at' => null,
         ]);
         $response->assertStatus(201);
+        $slug = $response['slug'];
 
         $response = $this->withHeaders([
             'Authorization' => 'Bearer' . $token,
         ])->getJson('/api/links');
         $response->assertStatus(200);
+
+        $response = $this->getJson('/api/s/'.$slug);
+        $response->assertStatus(302);
     }
 }
