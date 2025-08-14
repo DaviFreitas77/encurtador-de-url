@@ -1,7 +1,7 @@
 
 <h2>Visão Geral</h2>
 
-<p> Esse é o back-end em de um encurtador de URL,que me permitiu ter uma visão maior de estrutura e desenvolver orientado a testes,algo que ja tinha mechido em projetos prontos porem nunca começado um do zero.O projeto me fez querer estudar além de apenas códigos e entender a estrutura de um software com seus requisitos funcionais e principalemte os não funcionais porem que são essenciais para a escalabidade do proejto.</p>
+<p> Esse é o back-end em de um encurtador de URL,que me permitiu ter uma visão maior de estrutura e desenvolver orientado a testes,algo que ja tinha mechido em projetos prontos porem nunca começado um do zero.O projeto me fez querer estudar além de apenas códigos e entender a estrutura de um software com seus requisitos funcionais e principalmente os não funcionais  que são essenciais para a escalabidade do proejto.</p>
 
 <h2>Como rodar o projeto</h2>
 
