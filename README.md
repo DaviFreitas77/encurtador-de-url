@@ -44,8 +44,8 @@ cd encurtador-de-url
 <h2>login gerado pelo seeder </h2>
 
 <ul>
-  <li><strong>Apache</strong> e <strong>email:</strong>teste@example.com</li>
- <li><strong>Apache</strong> e <strong>senha:</strong>12345678</li>
+  <li><strong>email:</strong>teste@example.com</li>
+ <li><strong>senha:</strong>12345678</li>
 </ul>
 
 
