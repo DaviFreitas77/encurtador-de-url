@@ -85,8 +85,7 @@ class LinksController extends Controller
         }
 
         $captureUrl->increment('click_count');
-        return response()->json([
-            'original_url' => $captureUrl->original_url,
-        ]);
+         return redirect($captureUrl->original_url); 
+       
     }
 }
