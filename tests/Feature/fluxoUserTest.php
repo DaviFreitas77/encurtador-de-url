@@ -42,7 +42,7 @@ class fluxoUserTest extends TestCase
         ])->getJson('/api/links');
         $response->assertStatus(200);
 
-        $response = $this->getJson('/api/s/'.$slug);
+        $response = $this->getJson('/api/s/' . $slug);
         $response->assertStatus(302);
     }
 }

@@ -97,4 +97,31 @@ class LinksController extends Controller
         $captureUrl->increment('click_count');
         return redirect($captureUrl->original_url, 302);
     }
+
+    public function totalLinks(Request $request)
+    {
+        if (!$request->user()) {
+            return response()->json([
+                'message' => 'usuario não autenticadl'
+            ], 401);
+        }
+        $idUser = $request->user()->id;
+        $totalLinks = Links::where('user_id', $idUser)->count();
+
+        $linksActive = Links::where('user_id', $idUser)->where('status', 'active')->count();
+
+        $linksInactive = Links::where('user_id', $idUser)->where('status', 'expired')->count();
+
+        $totalClicks = Links::where('user_id', $idUser)->sum('click_count');
+
+        $topClick = Links::where('user_id', $idUser)->orderByDesc('click_count')->limit(10)->select('slug', 'original_url', 'click_count')->get();
+
+        return response()->json([
+            'total_links' => $totalLinks,
+            'links_active' => $linksActive,
+            'links_expired' => $linksInactive,
+            'total_click' => $totalClicks,
+            'top_click' => $topClick
+        ]);
+    }
 }
