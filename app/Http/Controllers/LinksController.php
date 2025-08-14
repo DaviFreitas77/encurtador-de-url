@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Links;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use LaravelQRCode\Facades\QRCode;
 
@@ -83,9 +84,17 @@ class LinksController extends Controller
             $captureUrl->save();
             return response()->json(['message' => 'link expirado']);
         }
+        $clientIP = request()->ip();
+        $link_id = $captureUrl->id;
+        $agent = request()->server('HTTP_USER_AGENT');
 
+        DB::table('visits')->insert([
+            'link_id' => $link_id,
+            'ip_hash' => $clientIP,
+            'user_agent' => $agent,
+            'created_at' => now()
+        ]);
         $captureUrl->increment('click_count');
-         return redirect($captureUrl->original_url,302); 
-       
+        return redirect($captureUrl->original_url, 302);
     }
 }
