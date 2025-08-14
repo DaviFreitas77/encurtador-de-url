@@ -21,6 +21,7 @@ Route::prefix('auth')->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/links', [LinksController::class, 'fetchLinkUser']);
     Route::post('/links', [LinksController::class, 'createLink']);
+    Route::get('/countLink', [LinksController::class, 'totalLinks']);
 });
 
 Route::prefix('s')->group(function () {
@@ -28,4 +29,4 @@ Route::prefix('s')->group(function () {
 });
 
 
-Route::get('/qrCode/{slug}',[QRCodeController::class,'gerarQrCode']);
+Route::get('/qrCode/{slug}', [QRCodeController::class, 'gerarQrCode']);
