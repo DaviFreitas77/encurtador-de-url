@@ -41,6 +41,13 @@ cd encurtador-de-url
   <li>Certifique-se de criar o banco de dados <strong>db_encurtador</strong> antes de rodar as migrações.</li>
 </ul>
 
+<h2>login gerado pelo seeder </h2>
+
+<ul>
+  <li><strong>Apache</strong> e <strong>email:</strong>teste@example.com</li>
+ <li><strong>Apache</strong> e <strong>senha:</strong>12345678</li>
+</ul>
+
 
 
 
