@@ -25,6 +25,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/countLink', [LinksController::class, 'totalLinks']);
 });
 
+Route::middleware('auth:sanctum')->prefix('metrics')->group(function () {
+    Route::get('/total', [LinksController::class, 'totalLinks']);
+    Route::get('/total-click', [LinksController::class, 'totalClick']);
+    Route::get('/active-expired', [LinksController::class, 'activeExpired']);
+    Route::get('/top', [LinksController::class, 'topClick']);
+});
 Route::prefix('s')->group(function () {
     Route::get('/{slug}', [LinksController::class, 'redirectOriginalUrl']);
 });

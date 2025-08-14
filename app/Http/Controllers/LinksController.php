@@ -102,25 +102,68 @@ class LinksController extends Controller
     {
         if (!$request->user()) {
             return response()->json([
-                'message' => 'usuario não autenticadl'
+                'message' => 'usuario não autenticado'
             ], 401);
         }
         $idUser = $request->user()->id;
         $totalLinks = Links::where('user_id', $idUser)->count();
 
-        $linksActive = Links::where('user_id', $idUser)->where('status', 'active')->count();
 
-        $linksInactive = Links::where('user_id', $idUser)->where('status', 'expired')->count();
-
-        $totalClicks = Links::where('user_id', $idUser)->sum('click_count');
-
-        $topClick = Links::where('user_id', $idUser)->orderByDesc('click_count')->limit(10)->select('slug', 'original_url', 'click_count')->get();
 
         return response()->json([
             'total_links' => $totalLinks,
-            'links_active' => $linksActive,
-            'links_expired' => $linksInactive,
+        ]);
+    }
+    public function totalClick(Request $request)
+    {
+        if (!$request->user()) {
+            return response()->json([
+                'message' => 'usuario não autenticado'
+            ], 401);
+        }
+
+        $idUser = $request->user()->id;
+        $totalClicks = Links::where('user_id', $idUser)->sum('click_count');
+
+        return response()->json([
+
             'total_click' => $totalClicks,
+
+        ]);
+    }
+    public function activeExpired(Request $request)
+    {
+        if (!$request->user()) {
+            return response()->json([
+                'message' => 'usuario não autenticado'
+            ], 401);
+        }
+        $idUser = $request->user()->id;
+
+        $linksActive = Links::where('user_id', $idUser)->where('status', 'active')->count();
+
+        $linksExpired = Links::where('user_id', $idUser)->where('status', 'expired')->count();
+
+        return response()->json([
+
+            'links_active' => $linksActive,
+            'links_expired' => $linksExpired,
+
+        ]);
+    }
+    public function topClick(Request $request)
+    {
+        if (!$request->user()) {
+            return response()->json([
+                'message' => 'usuario não autenticado'
+            ], 401);
+        }
+
+        $idUser = $request->user()->id;
+        $topClick = Links::where('user_id', $idUser)->orderByDesc('click_count')->limit(10)->select('slug', 'original_url', 'click_count')->get();
+
+
+        return response()->json([
             'top_click' => $topClick
         ]);
     }
