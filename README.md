@@ -23,11 +23,6 @@ cd encurtador-de-url
   <li>Instale as dependências do Composer:
     <pre><code>composer install</code></pre>
   </li>
-  <li>Configure o banco de dados no arquivo <code>.env</code>. Crie o banco com o nome <strong>db_encurtador</strong>:
-    <pre><code>DB_DATABASE=db_encurtador
-DB_USERNAME=seu_usuario
-DB_PASSWORD=sua_senha</code></pre>
-  </li>
   <li>Realize as migrações e seeders para criar a estrutura do banco:
     <pre><code>php artisan migrate:fresh --seed</code></pre>
   </li>
@@ -46,12 +41,8 @@ DB_PASSWORD=sua_senha</code></pre>
   <li>Certifique-se de criar o banco de dados <strong>db_encurtador</strong> antes de rodar as migrações.</li>
 </ul>
 
-<h2>Observações importantes</h2>
 
-<ul>
-  <li>O projeto foi desenvolvido com foco em testes, estrutura bem definida e escalabilidade.</li>
-  <li>Para um ambiente de produção, considere configurar ambiente adequado, segurança, cache e otimizações adicionais.</li>
-</ul>
+
 
 <h2>Contato</h2>
 
