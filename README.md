@@ -1,33 +1,61 @@
+<h1>Encurtador de URL - Back-end</h1>
 
-# Visão geral
+<p>Este projeto é o back-end de um sistema de encurtamento de URLs, desenvolvido com foco na estrutura, testes e escalabilidade. Através dele, você poderá aprender mais sobre arquitetura de software, requisitos funcionais e não funcionais, além de práticas para tornar seu sistema mais robusto e preparado para crescimento.</p>
 
-    Esse é o back-end em de um encurtador de URL,que me permitiu ter uma visão maior de estrutura e desenvolver orientado a testes,algo que ja tinha mechido em projetos prontos porem nunca começado um do zero.O projeto me fez querer estudar além de apenas códigos e entender a estrutura de um software com seus requisitos funcionais e principalemte os não funcionais porem que são essenciais para a escalabidade do proejto.
+<h2>Visão Geral</h2>
 
+<p>Este projeto foi criado para proporcionar uma compreensão prática sobre a construção de uma API de encurtamento de URLs, com foco em boas práticas de desenvolvimento, testes e organização de código. Além disso, estimulou o estudo de requisitos não funcionais essenciais para a escalabilidade de aplicações web.</p>
 
-## Como rodar o projeto
+<h2>Como rodar o projeto</h2>
 
-## clone o repositório
-git clone https://github.com/DaviFreitas77/encurtador-de-url.git
+<h3>Clone o repositório</h3>
+
+<pre><code>git clone https://github.com/DaviFreitas77/encurtador-de-url.git
 cd encurtador-de-url
+</code></pre>
 
-## Na raiz do projeto 
-crie o arquivo .env e colo o .env.exemple
+<h3>Configuração inicial</h3>
 
-## Gerando key
-php artisan key:generate
+<ol>
+  <li>Crie o arquivo <code>.env</code> na raiz do projeto, baseando-se no arquivo <code>.env.example</code>:
+    <pre><code>cp .env.example .env</code></pre>
+  </li>
+  <li>Gere a chave da aplicação:
+    <pre><code>php artisan key:generate</code></pre>
+  </li>
+  <li>Instale as dependências do Composer:
+    <pre><code>composer install</code></pre>
+  </li>
+  <li>Configure o banco de dados no arquivo <code>.env</code>. Crie o banco com o nome <strong>db_encurtador</strong>:
+    <pre><code>DB_DATABASE=db_encurtador
+DB_USERNAME=seu_usuario
+DB_PASSWORD=sua_senha</code></pre>
+  </li>
+  <li>Realize as migrações e seeders para criar a estrutura do banco:
+    <pre><code>php artisan migrate:fresh --seed</code></pre>
+  </li>
+</ol>
 
-## Instalar dependencias
-composer install
+<h3>Iniciando o servidor</h3>
 
-## Rodar migration com seeders
-php artisan migrate:fresh --seed 
+<pre><code>php artisan serve</code></pre>
 
-## Iniciar servidor
-php artisan serve
-seu servidor estará rodando em http://127.0.0.1:8000
+<p>Seu servidor estará acessível em: <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a></p>
 
-## ATENÇÃO
-certifique-se de ligar o apache o e mysql para rodar localmente na port :8000
-logo após crie o banco db_encurtador para dar inicio a rodar a migration.
+<h2>Requisitos adicionais</h2>
 
+<ul>
+  <li><strong>Apache</strong> e <strong>MySQL</strong> devem estar ativos e configurados na sua máquina para rodar o projeto localmente na porta padrão 8000.</li>
+  <li>Certifique-se de criar o banco de dados <strong>db_encurtador</strong> antes de rodar as migrações.</li>
+</ul>
 
+<h2>Observações importantes</h2>
+
+<ul>
+  <li>O projeto foi desenvolvido com foco em testes, estrutura bem definida e escalabilidade.</li>
+  <li>Para um ambiente de produção, considere configurar ambiente adequado, segurança, cache e otimizações adicionais.</li>
+</ul>
+
+<h2>Contato</h2>
+
+<p>Dúvidas ou sugestões? Entre em contato comigo pelo <a href="mailto:dfreitas.developer@gmail.com">dfreitas.developer@gmail.com</a>.</p>
