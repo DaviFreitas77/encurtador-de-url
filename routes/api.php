@@ -22,7 +22,6 @@ Route::prefix('auth')->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/links', [LinksController::class, 'fetchLinkUser']);
     Route::post('/links', [LinksController::class, 'createLink']);
-    Route::get('/countLink', [LinksController::class, 'totalLinks']);
 });
 
 Route::middleware('auth:sanctum')->prefix('metrics')->group(function () {
