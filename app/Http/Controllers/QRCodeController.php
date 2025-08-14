@@ -11,7 +11,7 @@ class QRCodeController extends Controller
     public function gerarQrCode($slug)
     {
 
-        $qrcode = QRCode::url(url("/s/{$slug}"))
+        $qrcode = QRCode::url(url("api/s/{$slug}"))
             ->setSize(8)
             ->setMargin(2);
 
