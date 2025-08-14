@@ -1,10 +1,7 @@
-<h1>Encurtador de URL - Back-end</h1>
-
-<p>Este projeto é o back-end de um sistema de encurtamento de URLs, desenvolvido com foco na estrutura, testes e escalabilidade. Através dele, você poderá aprender mais sobre arquitetura de software, requisitos funcionais e não funcionais, além de práticas para tornar seu sistema mais robusto e preparado para crescimento.</p>
 
 <h2>Visão Geral</h2>
 
-<p>Este projeto foi criado para proporcionar uma compreensão prática sobre a construção de uma API de encurtamento de URLs, com foco em boas práticas de desenvolvimento, testes e organização de código. Além disso, estimulou o estudo de requisitos não funcionais essenciais para a escalabilidade de aplicações web.</p>
+<p> Esse é o back-end em de um encurtador de URL,que me permitiu ter uma visão maior de estrutura e desenvolver orientado a testes,algo que ja tinha mechido em projetos prontos porem nunca começado um do zero.O projeto me fez querer estudar além de apenas códigos e entender a estrutura de um software com seus requisitos funcionais e principalemte os não funcionais porem que são essenciais para a escalabidade do proejto.</p>
 
 <h2>Como rodar o projeto</h2>
 
