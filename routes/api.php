@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\auth\LoginController;
+use App\Http\Controllers\auth\LogOutController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\LinksController;
 use App\Http\Controllers\QRCodeController;
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('auth')->group(function () {
     Route::post('/register', [RegisterController::class, 'create']);
     Route::post('/login', [LoginController::class, 'login']);
-    Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:sanctum');
+    Route::post('/logout', [LogOutController::class, 'logout'])->middleware('auth:sanctum');
 });
 
 Route::middleware('auth:sanctum')->group(function () {
